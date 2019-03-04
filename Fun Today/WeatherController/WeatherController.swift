@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 import AlamofireImage
-
+import CoreLocation
 
 let KWeatherLocation:String = "location"
 let KWeatherForecast:String = "forecast"
@@ -20,7 +20,8 @@ let KForcastCell:String = "ForcastCell"
 
 class WeatherController: UIViewController {
     
-   
+    let locManager = CLLocationManager()
+    
     @IBOutlet weak var weatherView: WeatherCurrentView!
     @IBOutlet weak var collectionViewForcast: UICollectionView!{
         didSet{
@@ -40,34 +41,42 @@ class WeatherController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        Alamofire.request("https://api.apixu.com/v1/forecast.json?key=fa029dec276a493e99285815190403&q=Dubai&days=5").responseJSON { response in
-//            print("Request: \(String(describing: response.request))")   // original url request
-//            print("Response: \(String(describing: response.response))") // http url response
-//            print("Result: \(response.result)")                         // response serialization result
+        
+//        let locManager = CLLocationManager()
+        locManager.delegate = self
+        locManager.requestWhenInUseAuthorization()
+        
+       
+        
+        
+    }
+    
+    // MARK: - SelfFunctions
+    
+    
+    func getWeather(location:CLLocationCoordinate2D)  {
+        let latLon = "\(location.latitude),\(location.longitude)"
+        
+        let weatherUrlStr = "https://api.apixu.com/v1/forecast.json?key=fa029dec276a493e99285815190403&q=\(latLon)&days=5"
+        
+        Alamofire.request(weatherUrlStr).responseJSON { response in
+            
+            // response serialization result
             
             if let json = response.result.value {
-               // print("JSON: \(json)") // serialized json response
+                // print("JSON: \(json)") // serialized json response
                 let weatherData = json as! Dictionary<String, Any>
                 let location = weatherData[KWeatherLocation] as! Dictionary<String, Any>
                 let forecast = weatherData[KWeatherForecast] as! Dictionary<String, Any>
                 let current = weatherData[KWeatherCurrent] as! Dictionary<String, Any>
                 
-                self.set(location: location)
-                self.set(current: current)
+                self.weatherView.set(location: location)
+                self.weatherView.set(current: current)
                 self.set(forecast: forecast)
             }
-//
-//            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
-//                print("Data: \(utf8Text)") // original server data as UTF8 string
-//            }
         }
     }
     
-    // MARK: - SelfFunctions
-    
-    func set(location: Dictionary<String, Any>) {
-        weatherView.lblCity.text = location["name"] as? String
-    }
     
     func set(forecast: Dictionary<String, Any>) {
        let forecastData = forecast["forecastday"] as! Array<Dictionary<String, Any>>
@@ -92,61 +101,25 @@ class WeatherController: UIViewController {
                 dayDic["icon"] = stripImageUrl
             }
             
+            
+            let dayDate = eachData["date"] as! String
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+            let date = dateFormatter.date(from:dayDate)!
+            
+            dateFormatter.dateFormat = "EE"
+            let dayInWeek = dateFormatter.string(from: date)
+            dayDic["dayName"] = dayInWeek
+
             collectionDataArr.append(dayDic)
         }
         
         collectionViewForcast.reloadData()
     }
     
-    func set(imageView: UIImageView, UrlS:String) {
-        Alamofire.request(UrlS).responseImage { response in
-            if let image = response.result.value {
-                imageView.image = image
-            }
-        }
-    }
-    
-    func set(current: Dictionary<String, Any>) {
-        //Setting weather current icon and about
-        if let condition = current["condition"] as? Dictionary<String, Any>{
-            weatherView.lblAbout.text = condition["text"] as? String
-            let imageUrl = condition["icon"] as? String
-            //var stripImageUrl: String = String((imageUrl?.dropFirst(2))!)
-            let stripImageUrl = String.init(format: "https:%@", imageUrl!)
-            self.set(imageView: self.weatherView.imgViewWeather, UrlS: stripImageUrl)
-            
-            //            Alamofire.request(stripImageUrl).responseImage { response in
-//                if let image = response.result.value {
-//                    self.weatherView.imgViewWeather.image = image
-//                }
-//            }
-        }
-        //Setting current day
-        let date = Date()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEEE"
-        let dayInWeek = dateFormatter.string(from: date)
-        
-        weatherView.lblDay.text = dayInWeek
-        //
-        
-        let tempC : Int = current["temp_c"] as? Int ?? 0
-        let tempS = String(tempC)
-        weatherView.lblDegreeVal.text = tempS
-        
-        let precip_in : Int = current["precip_in"] as? Int ?? 0
-        let precip_inS = String(precip_in)
-        weatherView.lblPrecipitation.text = precip_inS
-        
-        let humidity : Int = current["humidity"] as? Int ?? 0
-        let humidityS = String(humidity)
-        weatherView.lblHumidity.text = humidityS
-        
-        let wind_kph : CGFloat = current["wind_kph"] as? CGFloat ?? 0
-        let wind_kphS = "\(wind_kph)"
-        weatherView.lblWind.text = wind_kphS
-        
-    }
+
     
     // MARK: - IBActions
 
@@ -167,6 +140,18 @@ class WeatherController: UIViewController {
     
 
 }
+extension WeatherController: CLLocationManagerDelegate{
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if( CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
+            CLLocationManager.authorizationStatus() ==  .authorizedAlways){
+            if let currentLocation = locManager.location{
+                self.getWeather(location: currentLocation.coordinate)
+            }
+        }
+        
+        
+    }
+}
 
 extension WeatherController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
@@ -180,12 +165,13 @@ extension WeatherController: UICollectionViewDelegate, UICollectionViewDataSourc
         let day = collectionDataArr[indexPath.row]
         
         
-        cell.lblDay.text = "SAT"
+        cell.lblDay.text = day["dayName"]
         cell.lblMinDeg.text = day["mintemp_c"]
         cell.lblMaxDeg.text = day["maxtemp_c"]
         
         if let weatherIcon = day["icon"] {
-            self.set(imageView: cell.imgViewWeather, UrlS: weatherIcon)
+            //self.set(imageView: cell.imgViewWeather, UrlS: weatherIcon)
+            cell.imgViewWeather.setImage(urlS: weatherIcon)
         }
         
         return cell
