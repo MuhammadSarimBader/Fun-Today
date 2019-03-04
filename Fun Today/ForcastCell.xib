@@ -70,6 +70,12 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="141" height="212"/>
+            <connections>
+                <outlet property="imgViewWeather" destination="DhC-4M-ZRg" id="R5O-6L-Fp0"/>
+                <outlet property="lblDay" destination="Oir-sV-T8D" id="kEf-42-i0A"/>
+                <outlet property="lblMaxDeg" destination="tNB-H9-m5t" id="asg-nr-2RI"/>
+                <outlet property="lblMinDeg" destination="g1f-YR-vGL" id="98W-yh-e7K"/>
+            </connections>
             <point key="canvasLocation" x="205.59999999999999" y="223.08845577211397"/>
         </collectionViewCell>
     </objects>

@@ -32,7 +32,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0bo-3A-Ssg">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="403.66666666666669"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l39-Jk-ecX">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l39-Jk-ecX" customClass="WeatherCurrentView" customModule="Fun_Today" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="403.66666666666669"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dubai" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NIY-IE-Gmv">
@@ -75,6 +75,9 @@
                                                                 <integer key="value" value="19"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="onPopRestaurant:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HMK-aZ-o64"/>
+                                                        </connections>
                                                     </button>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="YSW-Vo-XyK">
                                                         <rect key="frame" x="310" y="172.33333333333334" width="80" height="32"/>
@@ -85,6 +88,9 @@
                                                                     <constraint firstAttribute="height" constant="32" id="3rz-UN-tIU"/>
                                                                 </constraints>
                                                                 <state key="normal" image="WeatherCentigrade"/>
+                                                                <connections>
+                                                                    <action selector="onCentigrade:" destination="l39-Jk-ecX" eventType="touchUpInside" id="hA4-Xj-Q7a"/>
+                                                                </connections>
                                                             </button>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iia-ie-yDd">
                                                                 <rect key="frame" x="39" y="0.0" width="2" height="32"/>
@@ -96,6 +102,9 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gcF-Nl-tou">
                                                                 <rect key="frame" x="45" y="0.0" width="35" height="32"/>
                                                                 <state key="normal" image="WeatherFahrenheit"/>
+                                                                <connections>
+                                                                    <action selector="onFahrenheit:" destination="l39-Jk-ecX" eventType="touchUpInside" id="cGI-Lo-Ia6"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <constraints>
@@ -222,6 +231,16 @@
                                                     <constraint firstItem="Lzz-nD-laX" firstAttribute="leading" secondItem="NIY-IE-Gmv" secondAttribute="leading" id="zp8-Ll-8rE"/>
                                                     <constraint firstItem="YSW-Vo-XyK" firstAttribute="leading" secondItem="lUp-Ws-o2D" secondAttribute="trailing" id="zzo-gq-4dI"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outlet property="imgViewWeather" destination="IsB-QV-cuH" id="f0d-CA-tlm"/>
+                                                    <outlet property="lblAbout" destination="5NA-cw-tgH" id="Hr8-CX-8m7"/>
+                                                    <outlet property="lblCity" destination="NIY-IE-Gmv" id="mXh-TO-FaL"/>
+                                                    <outlet property="lblDay" destination="Lzz-nD-laX" id="53h-QV-Hcd"/>
+                                                    <outlet property="lblDegreeVal" destination="lUp-Ws-o2D" id="x2g-Kk-dFD"/>
+                                                    <outlet property="lblHumidity" destination="hce-C5-Z8U" id="Mty-7A-WfN"/>
+                                                    <outlet property="lblPrecipitation" destination="zfg-Ki-R25" id="QVq-H6-Li6"/>
+                                                    <outlet property="lblWind" destination="XIg-L8-WCZ" id="ixS-ey-fcW"/>
+                                                </connections>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -282,6 +301,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionViewForcast" destination="aBz-8P-Rld" id="5fs-aK-qMK"/>
+                        <outlet property="weatherView" destination="l39-Jk-ecX" id="GXT-hh-J07"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

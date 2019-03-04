@@ -16,6 +16,7 @@
 		1805112E222D3CDC00C034C0 /* WeatherController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1805112D222D3CDC00C034C0 /* WeatherController.swift */; };
 		18051131222D3D0C00C034C0 /* ForcastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1805112F222D3D0C00C034C0 /* ForcastCell.swift */; };
 		18051132222D3D0C00C034C0 /* ForcastCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18051130222D3D0C00C034C0 /* ForcastCell.xib */; };
+		18DACB11222D578D00BC5A0C /* WeatherCurrentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DACB10222D578D00BC5A0C /* WeatherCurrentView.swift */; };
 		25D95801EBE5E4A0D0D5D7EA /* Pods_Fun_Today.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4999A670B59050E39BFD6DA /* Pods_Fun_Today.framework */; };
 		30ECD3546A32B7CFF89EF9AB /* Pods_Fun_TodayUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DEE15BE28FFA6E1CE3F7E5E /* Pods_Fun_TodayUITests.framework */; };
 		8616CC342BA34AF39A63C902 /* Pods_Fun_TodayTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 639A1A33A4026388AAAB0F55 /* Pods_Fun_TodayTests.framework */; };
@@ -55,6 +56,7 @@
 		1805112D222D3CDC00C034C0 /* WeatherController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherController.swift; sourceTree = "<group>"; };
 		1805112F222D3D0C00C034C0 /* ForcastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForcastCell.swift; sourceTree = "<group>"; };
 		18051130222D3D0C00C034C0 /* ForcastCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForcastCell.xib; sourceTree = "<group>"; };
+		18DACB10222D578D00BC5A0C /* WeatherCurrentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCurrentView.swift; sourceTree = "<group>"; };
 		3DEE15BE28FFA6E1CE3F7E5E /* Pods_Fun_TodayUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fun_TodayUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E08F5636575B14BFDC1EC71 /* Pods-Fun TodayTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fun TodayTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fun TodayTests/Pods-Fun TodayTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5D7AC20D1CF71BF56ACB5B5F /* Pods-Fun TodayUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fun TodayUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fun TodayUITests/Pods-Fun TodayUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			children = (
 				180510FF222D24F700C034C0 /* AppDelegate.swift */,
 				1805112D222D3CDC00C034C0 /* WeatherController.swift */,
+				18DACB10222D578D00BC5A0C /* WeatherCurrentView.swift */,
 				1805112F222D3D0C00C034C0 /* ForcastCell.swift */,
 				18051130222D3D0C00C034C0 /* ForcastCell.xib */,
 				18051103222D24F700C034C0 /* Main.storyboard */,
@@ -313,12 +316,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Fun Today/Pods-Fun Today-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -399,6 +404,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18051131222D3D0C00C034C0 /* ForcastCell.swift in Sources */,
+				18DACB11222D578D00BC5A0C /* WeatherCurrentView.swift in Sources */,
 				1805112E222D3CDC00C034C0 /* WeatherController.swift in Sources */,
 				18051100222D24F700C034C0 /* AppDelegate.swift in Sources */,
 			);
