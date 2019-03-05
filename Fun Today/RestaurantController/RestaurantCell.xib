@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="141" id="KGk-i7-Jjw" customClass="RestaurantCell" customModule="Fun_Today" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="368" height="141"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="368" height="140.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HJ3-rs-vDZ">
+                        <rect key="frame" x="12" y="12" width="100" height="100"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="HJ3-rs-vDZ" secondAttribute="height" multiplier="1:1" id="E5E-7K-7WC"/>
+                            <constraint firstAttribute="height" constant="100" id="zCR-zC-xEi"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bazerkan Lebanese Restaurant" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BtR-2e-WbB">
+                        <rect key="frame" x="128" y="25.5" width="228" height="19.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqR-IM-13M">
+                        <rect key="frame" x="128" y="47" width="40" height="30"/>
+                        <state key="normal" title="Dubai"/>
+                    </button>
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ysi-6j-Gbd">
+                        <rect key="frame" x="197" y="47" width="67" height="30"/>
+                        <state key="normal" title="Lebanese"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3.8" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jLg-x5-GgM">
+                        <rect key="frame" x="128" y="83" width="23" height="19.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="96" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c8q-Ez-iou">
+                        <rect key="frame" x="275.5" y="83" width="20" height="19.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reviews" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="adF-yC-HDP">
+                        <rect key="frame" x="296.5" y="83" width="59.5" height="19.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="adF-yC-HDP" firstAttribute="centerY" secondItem="c8q-Ez-iou" secondAttribute="centerY" id="0QQ-zx-J6m"/>
+                    <constraint firstItem="jLg-x5-GgM" firstAttribute="leading" secondItem="bqR-IM-13M" secondAttribute="leading" id="2v0-cV-WtH"/>
+                    <constraint firstItem="bqR-IM-13M" firstAttribute="centerY" secondItem="HJ3-rs-vDZ" secondAttribute="centerY" id="33z-oo-GCI"/>
+                    <constraint firstItem="jLg-x5-GgM" firstAttribute="top" secondItem="bqR-IM-13M" secondAttribute="bottom" constant="6" id="3IG-RC-fNM"/>
+                    <constraint firstItem="BtR-2e-WbB" firstAttribute="leading" secondItem="HJ3-rs-vDZ" secondAttribute="trailing" constant="16" id="3vA-lc-Fct"/>
+                    <constraint firstItem="c8q-Ez-iou" firstAttribute="centerY" secondItem="jLg-x5-GgM" secondAttribute="centerY" id="4ee-TE-QqW"/>
+                    <constraint firstItem="adF-yC-HDP" firstAttribute="leading" secondItem="c8q-Ez-iou" secondAttribute="trailing" constant="1" id="66a-EA-dQu"/>
+                    <constraint firstItem="HJ3-rs-vDZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="7zl-Da-kEO"/>
+                    <constraint firstItem="HJ3-rs-vDZ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="A4f-AC-ute"/>
+                    <constraint firstItem="HJ3-rs-vDZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="Gvk-wr-XAo"/>
+                    <constraint firstAttribute="trailing" secondItem="BtR-2e-WbB" secondAttribute="trailing" constant="12" id="N2v-d8-rCF"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="HJ3-rs-vDZ" secondAttribute="bottom" constant="12" id="QHW-Ro-Gzp"/>
+                    <constraint firstItem="bqR-IM-13M" firstAttribute="top" secondItem="BtR-2e-WbB" secondAttribute="bottom" constant="2" id="XIa-J7-wXy"/>
+                    <constraint firstItem="Ysi-6j-Gbd" firstAttribute="leading" secondItem="bqR-IM-13M" secondAttribute="trailing" constant="29" id="fvw-GS-moq"/>
+                    <constraint firstItem="Ysi-6j-Gbd" firstAttribute="centerY" secondItem="bqR-IM-13M" secondAttribute="centerY" id="hYY-cb-CXS"/>
+                    <constraint firstItem="bqR-IM-13M" firstAttribute="leading" secondItem="BtR-2e-WbB" secondAttribute="leading" id="lhf-ji-QY0"/>
+                    <constraint firstAttribute="trailing" secondItem="adF-yC-HDP" secondAttribute="trailing" constant="12" id="o06-7c-0Bp"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="btnLocation" destination="bqR-IM-13M" id="5ec-2F-B7i"/>
+                <outlet property="btnType" destination="Ysi-6j-Gbd" id="qbI-qP-Uwg"/>
+                <outlet property="imgViewRestaurant" destination="HJ3-rs-vDZ" id="ga7-zp-oRn"/>
+                <outlet property="lblName" destination="BtR-2e-WbB" id="1em-Xe-GzY"/>
+                <outlet property="lblRating" destination="jLg-x5-GgM" id="QQ3-X2-GWp"/>
+                <outlet property="lblReviewsCount" destination="c8q-Ez-iou" id="S2a-hI-qCb"/>
+            </connections>
+            <point key="canvasLocation" x="176" y="72.413793103448285"/>
+        </tableViewCell>
+    </objects>
+</document>

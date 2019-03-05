@@ -16,6 +16,9 @@
 		1805112E222D3CDC00C034C0 /* WeatherController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1805112D222D3CDC00C034C0 /* WeatherController.swift */; };
 		18051131222D3D0C00C034C0 /* ForcastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1805112F222D3D0C00C034C0 /* ForcastCell.swift */; };
 		18051132222D3D0C00C034C0 /* ForcastCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18051130222D3D0C00C034C0 /* ForcastCell.xib */; };
+		1843B76E222E2AFA00741FB4 /* RestaurantsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1843B76D222E2AFA00741FB4 /* RestaurantsController.swift */; };
+		1843B771222E2CFE00741FB4 /* RestaurantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1843B76F222E2CFE00741FB4 /* RestaurantCell.swift */; };
+		1843B772222E2CFE00741FB4 /* RestaurantCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1843B770222E2CFE00741FB4 /* RestaurantCell.xib */; };
 		18DACB11222D578D00BC5A0C /* WeatherCurrentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DACB10222D578D00BC5A0C /* WeatherCurrentView.swift */; };
 		18DACB13222D8A4000BC5A0C /* ImageUrl+ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DACB12222D8A4000BC5A0C /* ImageUrl+ImageView.swift */; };
 		18DACB16222D8BDE00BC5A0C /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DACB15222D8BDE00BC5A0C /* WebService.swift */; };
@@ -58,6 +61,9 @@
 		1805112D222D3CDC00C034C0 /* WeatherController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherController.swift; sourceTree = "<group>"; };
 		1805112F222D3D0C00C034C0 /* ForcastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForcastCell.swift; sourceTree = "<group>"; };
 		18051130222D3D0C00C034C0 /* ForcastCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForcastCell.xib; sourceTree = "<group>"; };
+		1843B76D222E2AFA00741FB4 /* RestaurantsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsController.swift; sourceTree = "<group>"; };
+		1843B76F222E2CFE00741FB4 /* RestaurantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantCell.swift; sourceTree = "<group>"; };
+		1843B770222E2CFE00741FB4 /* RestaurantCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestaurantCell.xib; sourceTree = "<group>"; };
 		18DACB10222D578D00BC5A0C /* WeatherCurrentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCurrentView.swift; sourceTree = "<group>"; };
 		18DACB12222D8A4000BC5A0C /* ImageUrl+ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageUrl+ImageView.swift"; sourceTree = "<group>"; };
 		18DACB15222D8BDE00BC5A0C /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
@@ -128,7 +134,7 @@
 				18DACB12222D8A4000BC5A0C /* ImageUrl+ImageView.swift */,
 				18DACB15222D8BDE00BC5A0C /* WebService.swift */,
 				18DACB14222D8BA600BC5A0C /* WeatherController */,
-				18051130222D3D0C00C034C0 /* ForcastCell.xib */,
+				1843B773222E2D0800741FB4 /* RestaurantController */,
 				18051103222D24F700C034C0 /* Main.storyboard */,
 				18051106222D24F800C034C0 /* Assets.xcassets */,
 				18051108222D24F800C034C0 /* LaunchScreen.storyboard */,
@@ -155,12 +161,23 @@
 			path = "Fun TodayUITests";
 			sourceTree = "<group>";
 		};
+		1843B773222E2D0800741FB4 /* RestaurantController */ = {
+			isa = PBXGroup;
+			children = (
+				1843B76D222E2AFA00741FB4 /* RestaurantsController.swift */,
+				1843B76F222E2CFE00741FB4 /* RestaurantCell.swift */,
+				1843B770222E2CFE00741FB4 /* RestaurantCell.xib */,
+			);
+			path = RestaurantController;
+			sourceTree = "<group>";
+		};
 		18DACB14222D8BA600BC5A0C /* WeatherController */ = {
 			isa = PBXGroup;
 			children = (
 				1805112D222D3CDC00C034C0 /* WeatherController.swift */,
 				18DACB10222D578D00BC5A0C /* WeatherCurrentView.swift */,
 				1805112F222D3D0C00C034C0 /* ForcastCell.swift */,
+				18051130222D3D0C00C034C0 /* ForcastCell.xib */,
 			);
 			path = WeatherController;
 			sourceTree = "<group>";
@@ -299,6 +316,7 @@
 				1805110A222D24F800C034C0 /* LaunchScreen.storyboard in Resources */,
 				18051107222D24F800C034C0 /* Assets.xcassets in Resources */,
 				18051132222D3D0C00C034C0 /* ForcastCell.xib in Resources */,
+				1843B772222E2CFE00741FB4 /* RestaurantCell.xib in Resources */,
 				18051105222D24F700C034C0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -417,8 +435,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1843B771222E2CFE00741FB4 /* RestaurantCell.swift in Sources */,
 				18DACB16222D8BDE00BC5A0C /* WebService.swift in Sources */,
 				18051131222D3D0C00C034C0 /* ForcastCell.swift in Sources */,
+				1843B76E222E2AFA00741FB4 /* RestaurantsController.swift in Sources */,
 				18DACB11222D578D00BC5A0C /* WeatherCurrentView.swift in Sources */,
 				18DACB13222D8A4000BC5A0C /* ImageUrl+ImageView.swift in Sources */,
 				1805112E222D3CDC00C034C0 /* WeatherController.swift in Sources */,

@@ -51,29 +51,25 @@ class WeatherController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+
+    }
+    
     // MARK: - SelfFunctions
     
     
     func getWeather(location:CLLocationCoordinate2D)  {
-        let latLon = "\(location.latitude),\(location.longitude)"
-        
-        let weatherUrlStr = "https://api.apixu.com/v1/forecast.json?key=fa029dec276a493e99285815190403&q=\(latLon)&days=5"
-        
-        Alamofire.request(weatherUrlStr).responseJSON { response in
+     
+        WebService().getWeather(location: location) { (json) in
+            let weatherData = json as! Dictionary<String, Any>
+            let location = weatherData[KWeatherLocation] as! Dictionary<String, Any>
+            let forecast = weatherData[KWeatherForecast] as! Dictionary<String, Any>
+            let current = weatherData[KWeatherCurrent] as! Dictionary<String, Any>
             
-            // response serialization result
-            
-            if let json = response.result.value {
-                // print("JSON: \(json)") // serialized json response
-                let weatherData = json as! Dictionary<String, Any>
-                let location = weatherData[KWeatherLocation] as! Dictionary<String, Any>
-                let forecast = weatherData[KWeatherForecast] as! Dictionary<String, Any>
-                let current = weatherData[KWeatherCurrent] as! Dictionary<String, Any>
-                
-                self.weatherView.set(location: location)
-                self.weatherView.set(current: current)
-                self.set(forecast: forecast)
-            }
+            self.weatherView.set(location: location)
+            self.weatherView.set(current: current)
+            self.set(forecast: forecast)
         }
     }
     
@@ -127,19 +123,21 @@ class WeatherController: UIViewController {
         
     }
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+//         Get the new view controller using segue.destination.
+//         Pass the selected object to the new view controller.
+        
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
-    */
+ 
     
     
 
 }
+
 extension WeatherController: CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if( CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
