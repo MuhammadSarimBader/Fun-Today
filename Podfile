@@ -8,7 +8,8 @@ target 'Fun Today' do
   # Pods for Fun Today
 	pod 'Alamofire'
     pod 'AlamofireImage'
-
+    pod 'Cosmos'
+    
   target 'Fun TodayTests' do
     inherit! :search_paths
     # Pods for testing

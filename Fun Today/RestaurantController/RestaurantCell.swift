@@ -9,9 +9,11 @@
 import UIKit
 import Alamofire
 import AlamofireImage
+import Cosmos
 
 class RestaurantCell: UITableViewCell {
 
+    @IBOutlet weak var ratingView: CosmosView!
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var btnType: UIButton!
     @IBOutlet weak var lblReviewsCount: UILabel!
@@ -35,7 +37,13 @@ class RestaurantCell: UITableViewCell {
         print(restaurant)
         
         lblName.text = restaurant["name"]
+        
+        let rating = restaurant["rating"]
         lblRating.text = restaurant["rating"]
+        
+        let ratingFloat = (rating! as NSString).doubleValue
+        ratingView.rating = ratingFloat
+        
         let reviewCount = restaurant["user_ratings_total"]
         lblReviewsCount.text = reviewCount
         

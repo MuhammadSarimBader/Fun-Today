@@ -69,6 +69,8 @@ class RestaurantsController: UIViewController {
             restaurantDic["user_ratings_total"] = userReviewCountS
             
             let usersRating : CGFloat = restaurant["rating"] as? CGFloat ?? 0
+            //restaurantDic["ratingFloat"] = usersRatingS
+
             let usersRatingS = "\(usersRating)"
             restaurantDic["rating"] = usersRatingS
             
