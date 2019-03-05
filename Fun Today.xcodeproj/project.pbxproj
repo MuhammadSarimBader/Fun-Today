@@ -131,8 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				180510FF222D24F700C034C0 /* AppDelegate.swift */,
-				18DACB12222D8A4000BC5A0C /* ImageUrl+ImageView.swift */,
-				18DACB15222D8BDE00BC5A0C /* WebService.swift */,
+				1843B774222EE7F400741FB4 /* Others */,
 				18DACB14222D8BA600BC5A0C /* WeatherController */,
 				1843B773222E2D0800741FB4 /* RestaurantController */,
 				18051103222D24F700C034C0 /* Main.storyboard */,
@@ -169,6 +168,15 @@
 				1843B770222E2CFE00741FB4 /* RestaurantCell.xib */,
 			);
 			path = RestaurantController;
+			sourceTree = "<group>";
+		};
+		1843B774222EE7F400741FB4 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				18DACB12222D8A4000BC5A0C /* ImageUrl+ImageView.swift */,
+				18DACB15222D8BDE00BC5A0C /* WebService.swift */,
+			);
+			path = Others;
 			sourceTree = "<group>";
 		};
 		18DACB14222D8BA600BC5A0C /* WeatherController */ = {

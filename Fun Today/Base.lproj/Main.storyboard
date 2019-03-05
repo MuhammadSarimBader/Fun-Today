@@ -83,7 +83,7 @@
                                                             <constraint firstAttribute="width" constant="180" id="frK-Ez-mGW"/>
                                                             <constraint firstAttribute="height" constant="38" id="ofz-Xf-OU7"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                                         <state key="normal" title="POPULAR RESTAURANTS">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
@@ -93,7 +93,6 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="onPopRestaurant:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HMK-aZ-o64"/>
                                                             <segue destination="EmS-kT-cmq" kind="show" id="x6d-09-AUe"/>
                                                         </connections>
                                                     </button>

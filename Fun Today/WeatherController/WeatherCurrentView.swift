@@ -19,13 +19,7 @@ class WeatherCurrentView: UIView {
     @IBOutlet weak var lblWind: UILabel!
     
      @IBOutlet weak var imgViewWeather: UIImageView!
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
+ 
 
     func set(location: Dictionary<String, Any>) {
         self.lblCity.text = location["name"] as? String
@@ -74,6 +68,5 @@ class WeatherCurrentView: UIView {
     @IBAction func onFahrenheit(_ sender: Any) {
         
     }
-    
     
 }

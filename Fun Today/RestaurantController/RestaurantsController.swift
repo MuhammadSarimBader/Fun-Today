@@ -34,14 +34,8 @@ class RestaurantsController: UIViewController {
         // Do any additional setup after loading the view.
         locManager.delegate = self
         locManager.requestWhenInUseAuthorization()
-
-//        if let location = locManager.location {
-//           // self.getRestaurant(location: location.coordinate)
-//        }
         
     }
-    
-    
     
     func getRestaurant(location:CLLocationCoordinate2D)  {
         
@@ -53,7 +47,6 @@ class RestaurantsController: UIViewController {
             }
         }
     }
-    
     
     // MARK: - SelfFunctions
     func set(restaurants: Array<Dictionary<String, Any>>) {
@@ -83,7 +76,6 @@ class RestaurantsController: UIViewController {
                 }
             }
             
-        
             let placeRefID = restaurant["place_id"] as! String
             let placeUrl = "https://maps.googleapis.com/maps/api/place/details/json?placeid=\(placeRefID)&key=\(KGoogleAPIKey)"
             restaurantDic["place_reference_url"] = placeUrl
@@ -94,22 +86,6 @@ class RestaurantsController: UIViewController {
         tableViewRestaurant.reloadData()
     }
     
-    
-    
-//    override func viewWillDisappear(_ animated: Bool) {
-//        self.navigationController?.setNavigationBarHidden(true, animated: true)
-//    }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 
@@ -121,13 +97,8 @@ extension RestaurantsController: CLLocationManagerDelegate{
                 self.getRestaurant(location: currentLocation.coordinate)
             }
         }
-        
-        
     }
 }
-
-
-
 
 extension RestaurantsController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -138,7 +109,6 @@ extension RestaurantsController: UITableViewDelegate, UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: KRestaurantCell, for: indexPath) as! RestaurantCell
         let restaurant = tableDataArr[indexPath.row]
         cell.set(restaurant: restaurant)
-        
         
         return cell
     }

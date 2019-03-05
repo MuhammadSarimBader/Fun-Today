@@ -41,23 +41,16 @@ class WeatherController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        
-//        let locManager = CLLocationManager()
         locManager.delegate = self
         locManager.requestWhenInUseAuthorization()
-        
-       
-        
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-
     }
     
     // MARK: - SelfFunctions
-    
     
     func getWeather(location:CLLocationCoordinate2D)  {
      
@@ -72,8 +65,7 @@ class WeatherController: UIViewController {
             self.set(forecast: forecast)
         }
     }
-    
-    
+
     func set(forecast: Dictionary<String, Any>) {
        let forecastData = forecast["forecastday"] as! Array<Dictionary<String, Any>>
         for eachData in forecastData {
@@ -116,14 +108,6 @@ class WeatherController: UIViewController {
     }
     
 
-    
-    // MARK: - IBActions
-
-    @IBAction func onPopRestaurant(_ sender: Any) {
-        
-    }
-
-    
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -133,9 +117,6 @@ class WeatherController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
  
-    
-    
-
 }
 
 extension WeatherController: CLLocationManagerDelegate{
@@ -146,8 +127,6 @@ extension WeatherController: CLLocationManagerDelegate{
                 self.getWeather(location: currentLocation.coordinate)
             }
         }
-        
-        
     }
 }
 
@@ -161,7 +140,6 @@ extension WeatherController: UICollectionViewDelegate, UICollectionViewDataSourc
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KForcastCell, for: indexPath) as! ForcastCell
         
         let day = collectionDataArr[indexPath.row]
-        
         
         cell.lblDay.text = day["dayName"]
         cell.lblMinDeg.text = day["mintemp_c"]
@@ -190,8 +168,5 @@ extension WeatherController: UICollectionViewDelegate, UICollectionViewDataSourc
 //
 //        return UIEdgeInsets(top: 0, left: leftInset, bottom: 0, right: rightInset)
 //    }
-    
-   
-    
     
 }
