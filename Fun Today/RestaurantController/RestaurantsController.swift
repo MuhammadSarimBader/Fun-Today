@@ -44,21 +44,12 @@ class RestaurantsController: UIViewController {
     
     
     func getRestaurant(location:CLLocationCoordinate2D)  {
-        let latLon = "\(location.latitude),\(location.longitude)"
         
-        let weatherUrlStr = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(latLon)&rankby=distance&type=restaurant&key=AIzaSyDensy8hUjbfXU0xQkiCdjr64kVLsCaWNM"
-        
-        Alamofire.request(weatherUrlStr).responseJSON { response in
-            
-            // response serialization result
-            
-            if let json = response.result.value {
-                // print("JSON: \(json)") // serialized json response
-                let restaurantData = json as! Dictionary<String, Any>
-                if (restaurantData["status"] as! String == "OK"){
-                    let results = restaurantData["results"] as! Array<Dictionary<String, Any>>
-                    self.set(restaurants: results)
-                }
+        WebService().getRestaurant(location: location) { (json) in
+            let restaurantData = json as! Dictionary<String, Any>
+            if (restaurantData["status"] as! String == "OK"){
+                let results = restaurantData["results"] as! Array<Dictionary<String, Any>>
+                self.set(restaurants: results)
             }
         }
     }

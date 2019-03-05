@@ -12,23 +12,32 @@ import CoreLocation
 
 class WebService {
     
-    
-    func requestModelSaveGameResultNew(parameters :Parameters, Success:@escaping (NSDictionary)->Void, Failure:@escaping (NSError)->Void) {
+    func request(urlS:String, Success:@escaping (Any)->Void) {
+        Alamofire.request(urlS).responseJSON { response in
+            
+            if let json = response.result.value {
+                Success(json)
+            }
+        }
     }
     
     public func getWeather(location:CLLocationCoordinate2D, Success:@escaping (Any)->Void)  {
         
         let latLon = "\(location.latitude),\(location.longitude)"
-        let weatherUrlStr = "https://api.apixu.com/v1/forecast.json?key=fa029dec276a493e99285815190403&q=\(latLon)&days=5"
+        let urlStr = "https://api.apixu.com/v1/forecast.json?key=fa029dec276a493e99285815190403&q=\(latLon)&days=5"
         
-        Alamofire.request(weatherUrlStr).responseJSON { response in
-            
-            // response serialization result
-            
-            if let json = response.result.value {
-                // print("JSON: \(json)") // serialized json response
-              Success(json)
-            }
+        request(urlS: urlStr) { (json) in
+            Success(json)
+        }
+    }
+    
+    public func getRestaurant(location:CLLocationCoordinate2D, Success:@escaping (Any)->Void)  {
+        let latLon = "\(location.latitude),\(location.longitude)"
+        
+        let urlStr = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(latLon)&rankby=distance&type=restaurant&key=AIzaSyDensy8hUjbfXU0xQkiCdjr64kVLsCaWNM"
+        
+        request(urlS: urlStr) { (json) in
+            Success(json)
         }
     }
 }
